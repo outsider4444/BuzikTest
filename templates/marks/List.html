@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="container">
+        <a href="{% url 'marksCreate' %}" class="btn btn-primary">Создать новую оценку</a>
+        <div class="row justify-content-center" style="margin-top: 15px">
+            <div class="col-12">
+                <table class="table table-hover ">
+                    <tr>
+                        <th>ФИО</th>
+                        {% for themes in themes_list %}
+                            <th>{{ themes.name }}</th>
+                        {% endfor %}
+                    <th>Сумма</th>
+                    </tr>
+
+                    {% for user in students_list %}
+                        <tr>
+                            <td>{{ user.surname }} {{ user.name }} {{ user.second_name }}</td>
+                            {% for themes in themes_list %}
+                                <td>{% for marks in marks_list %}
+                                    {% if marks.user.id == user.id %}
+                                        {% if marks.theme.id == themes.id %}
+                                            {{ marks.mark }}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                                </td>
+                            {% endfor %}
+                        <td>{% for max_score in max_score_list %}
+                            {% if max_score.user.id == user.id %}
+                                {{ max_score.max_ball }}
+                            {% endif %}
+                        {% endfor %}
+                        </td>
+                        </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% block content %}
+        <form method="post">{% csrf_token %}
+            <div class="row mb-3">
+                <label for="inputName" class="col-sm-2 col-form-label">Группа</label>
+                <div class="col-sm-10">
+                    {{ form.name }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Специализация</label>
+                <div class="col-sm-10">
+                    {{ form.specialize }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Курс</label>
+                <div class="col-sm-6">
+            {{ form.course }}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Подтвердить</button>
+
+
+        </form>
+
+
+    <script>
+        var form_name = document.getElementById('id_name');
+        form_name.className="form-control";
+
+        var form_specialize = document.getElementById('id_specialize');
+        form_specialize.className="form-control";
+
+        var form_course = document.getElementById('id_course');
+        form_course.className="form-control";
+
+    </script>
+{% endblock %}

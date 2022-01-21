@@ -1,0 +1,7 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <form method="post">{% csrf_token %}
+        Вы правда хотите удалить статью {{ articles.name }}?
+        <input type="submit" class="btn btn-danger" value="Подтвердить">
+    </form>
+{% endblock %}

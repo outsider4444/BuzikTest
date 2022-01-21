@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+        <div class="row mb-3">
+            <label for="inputName" class="col-sm-2 col-form-label">Название</label>
+            <div class="col-sm-10">
+                {{ form.name }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputName" class="col-sm-2 col-form-label">Файл</label>
+            <div class="col-sm-10">
+                {{ form.file }}
+            </div>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Подтвердить">
+    </form>
+
+    <script>
+        var form_name = document.getElementById('id_name');
+        form_name.className="form-control";
+
+        var form_file = document.getElementById('id_file');
+        form_file.className="form-control";
+        form_file.type="file";
+    </script>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="container">
+    <a href="{% url 'articlesCreate' %}" class="btn btn-primary">Создать статью</a>
+        <div class="row justify-content-center" style="margin-top: 15px">
+            <div class="col-12">
+                <table class="table table-hover ">
+                    <tr>
+                        <th>Название</th><th>Файл</th>
+                    </tr>
+                    {% for article in articles_list %}
+                        <tr>
+                            <td>{{ article.name }}</td>
+                            <td><a href="{{ article.id }}_download" target="_blank">Ссылка</a></td>
+                            <td><a href="{{ article.id }}/update" class="btn btn-primary">Редактирование</a>
+                            <a href="{{ article.id }}/delete" class="btn btn-danger" target="_blank">Удаление</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

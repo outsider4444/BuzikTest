@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <form method="post">{% csrf_token %}
+        <div class="row mb-3">
+            <label for="inputName" class="col-sm-2 col-form-label">Фамилия</label>
+            <div class="col-sm-10">
+                {{ form.surname }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputName" class="col-sm-2 col-form-label">Имя</label>
+            <div class="col-sm-10">
+                {{ form.name }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputName" class="col-sm-2 col-form-label">Отчество</label>
+            <div class="col-sm-10">
+                {{ form.second_name }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputName" class="col-sm-2 col-form-label">Группа</label>
+            <div class="col-sm-10">
+                {{ form.group }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputName" class="col-sm-2 col-form-label">Почта</label>
+            <div class="col-sm-10">
+                {{ form.email }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputName" class="col-sm-2 col-form-label">Пароль</label>
+            <div class="col-sm-10">
+                {{ form.password1 }}
+                <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputName" class="col-sm-2 col-form-label">Подтвердите пароль</label>
+            <div class="col-sm-10">
+                {{ form.password2 }}
+            </div>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Подтвердить">
+    </form>
+
+    <script>
+        var form_name = document.getElementById('id_name');
+        form_name.className="form-control";
+
+        var form_surname = document.getElementById('id_surname');
+        form_surname.className="form-control";
+
+        var form_second_name = document.getElementById('id_second_name');
+        form_second_name.className="form-control";
+
+        var form_email = document.getElementById('id_email');
+        form_email.className="form-control";
+
+        var form_group = document.getElementById('id_group');
+        form_group.className="form-control";
+
+        var form_password1 = document.getElementById('id_password1');
+        form_password1.className="form-control";
+        form_password1.type='password';
+
+        var form_password2 = document.getElementById('id_password2');
+        form_password2.className="form-control";
+        form_password1.type='password';
+    </script>
+
+{% endblock %}

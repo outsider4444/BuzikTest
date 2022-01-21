@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="container">
+        <form method="post" name="create">{% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Добавить">
+        </form>
+    </div>
+
+    <script>
+     var form_name = document.getElementById('id_name');
+        form_name.className="form-control";
+    </script>
+{% endblock %}

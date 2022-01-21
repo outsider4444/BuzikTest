@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+        <div class="row mb-3">
+            <label for="inputName" class="col-sm-2 col-form-label">Студент</label>
+            <div class="col-sm-10">
+                {{ form1.user }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputName" class="col-sm-2 col-form-label">Тема</label>
+            <div class="col-sm-10">
+                {{ form1.theme}}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputName" class="col-sm-2 col-form-label">Оценка</label>
+            <div class="col-sm-10">
+                {{ form1.mark }}
+            </div>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Подтвердить">
+
+
+
+    </form>
+    <script>
+        var form1_user = document.getElementById('id_user');
+        form1_user.className="form-control";
+        form1_user.id = 'id_user1';
+
+
+        var form_theme = document.getElementById('id_theme');
+        form_theme.className="form-control";
+
+        var form_mark = document.getElementById('id_mark');
+        form_mark.className="form-control";
+
+    </script>
+
+{% endblock %}

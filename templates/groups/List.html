@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <a href="{% url 'groupsCreate' %}" class="btn btn-primary">Создать группу</a>
+        <div class="row justify-content-center" style="margin-top: 15px">
+            <div class="col-12">
+                <table class="table table-hover ">
+                    <tr>
+                        <th>Группа</th><th>Специальность</th><th>Курс</th>
+                    </tr>
+                    {% for group in groups_list %}
+                        <tr>
+                            <td>{{ group.name }}</td>
+                            <td>{{ group.specialize }}</td>
+                            <td>{{ group.course }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+
+{% endblock %}
